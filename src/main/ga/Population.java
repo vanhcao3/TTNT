@@ -71,6 +71,6 @@ public class Population {
             selectedParentsSet.add(tournament.get(0));
         }
 
-        individuals = new ArrayList<>(selectedParentsSet);;
+        individuals = new ArrayList<>(selectedParentsSet);
     }
 }
