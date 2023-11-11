@@ -2,6 +2,9 @@ package main.ga;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
+
 import main.Configs;
 
 public class Population {
@@ -47,21 +50,27 @@ public class Population {
     }
 
     public void execute_selection(){
-        ArrayList<Individual> selectedParents = new ArrayList<>();
-
-        int tournamentSize = 10; //Thay doi dc
+        Set<Individual> selectedParentsSet = new HashSet<>();
+        int tournamentSize = 5; //Thay doi dc
 
         for (int i = 0; i < Configs.POPULATION_SIZE; i++) {
             ArrayList<Individual> tournament = new ArrayList<>();
-        
+            Set<Individual> selectedForTournament = new HashSet<>();
+
                 for (int j = 0; j < tournamentSize; j++) {
-                    tournament.add(individuals.get((int) (Math.random() * individuals.size())));
+                    Individual randomIndividual;
+                    do {
+                        randomIndividual = individuals.get((int) (Math.random() * individuals.size()));
+                    } while (selectedForTournament.contains(randomIndividual));
+                    
+                    tournament.add(randomIndividual);
+                    selectedForTournament.add(randomIndividual);
                 }
 
-        tournament.sort(Comparator.comparingDouble(individual -> individual.fitness));
-        selectedParents.add(tournament.get(0));
-    }
+            tournament.sort(Comparator.comparingDouble(individual -> individual.fitness));
+            selectedParentsSet.add(tournament.get(0));
+        }
 
-    individuals = selectedParents;
+        individuals = new ArrayList<>(selectedParentsSet);;
     }
 }
