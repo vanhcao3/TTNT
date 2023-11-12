@@ -9,4 +9,5 @@ public class Configs {
     public static final double MUTATION_RATE=0.1;
 
     public static final int MAX_GENERATION=200;
+    public static final int MAX_VEHICLE=10;
 }

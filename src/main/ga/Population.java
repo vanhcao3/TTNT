@@ -18,10 +18,11 @@ public class Population {
         best = null;
     }
 
-    public void random_init(){
+    public void randomInit(){
         for(int i = 0; i < Configs.POPULATION_SIZE; i++){
             Individual individual = new Individual();
             individual.random_init();
+            individual.calculateFitness();
             individuals.add(individual);       
         }
     }
@@ -49,28 +50,40 @@ public class Population {
         return offsprings;
     }
 
-    public void execute_selection(){
-        Set<Individual> selectedParentsSet = new HashSet<>();
-        int tournamentSize = 5; //Thay doi dc
+    public void executeSelection(){
+//        Set<Individual> selectedParentsSet = new HashSet<>();
+//        int tournamentSize = 5; //Thay doi dc
+//
+//        while(selectedParentsSet.size()!=Configs.POPULATION_SIZE) {
+//            ArrayList<Individual> tournament = new ArrayList<>();
+//            Set<Individual> selectedForTournament = new HashSet<>();
+//
+//            for (int j = 0; j < tournamentSize; j++) {
+//                Individual randomIndividual;
+//                do {
+//                    randomIndividual = individuals.get((int) (Math.random() * individuals.size()));
+//                } while (selectedForTournament.contains(randomIndividual));
+//
+//                tournament.add(randomIndividual);
+//                selectedForTournament.add(randomIndividual);
+//            }
+//
+//            tournament.sort(Comparator.comparingDouble(individual -> individual.fitness));
+//
+//            selectedParentsSet.add(tournament.get(0));
+//
+//        }
+//
+//        individuals = new ArrayList<>(selectedParentsSet);
 
-        for (int i = 0; i < Configs.POPULATION_SIZE; i++) {
-            ArrayList<Individual> tournament = new ArrayList<>();
-            Set<Individual> selectedForTournament = new HashSet<>();
+        this.individuals.sort(Comparator.comparingDouble(Individual::getFitness));
+//        best=individuals.get(0);
+        int len=individuals.size();
+        while(individuals.size()>Configs.POPULATION_SIZE){
+             individuals.remove(len-1);
+             len--;
 
-                for (int j = 0; j < tournamentSize; j++) {
-                    Individual randomIndividual;
-                    do {
-                        randomIndividual = individuals.get((int) (Math.random() * individuals.size()));
-                    } while (selectedForTournament.contains(randomIndividual));
-                    
-                    tournament.add(randomIndividual);
-                    selectedForTournament.add(randomIndividual);
-                }
-
-            tournament.sort(Comparator.comparingDouble(individual -> individual.fitness));
-            selectedParentsSet.add(tournament.get(0));
         }
-
-        individuals = new ArrayList<>(selectedParentsSet);
+        best=individuals.get(0);
     }
 }
