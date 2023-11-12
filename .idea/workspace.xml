@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b756e0ca-cbdd-4778-942f-0733714b20ea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Configs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Configs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Problem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Problem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ga/GA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ga/GA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ga/Individual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ga/Individual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ga/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ga/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ga/SubChromosome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ga/SubChromosome.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +104,7 @@
       <workItem from="1699345045073" duration="29000" />
       <workItem from="1699715227901" duration="3182000" />
       <workItem from="1699760507342" duration="8000" />
-      <workItem from="1699797004942" duration="12281000" />
+      <workItem from="1699797004942" duration="14264000" />
     </task>
     <servers />
   </component>
@@ -119,11 +114,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Main.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/ga/Individual.java</url>
           <line>50</line>

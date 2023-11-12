@@ -32,7 +32,7 @@ public class Individual  {
 
         // Tạo các phần tử trong chromosome
         for (int i = 0; i < N-1; i++) {
-            randomChromosome.add(rand.nextInt(MAX_VEHICLE-1)+1); // chọn ngẫu nhiên từ 1 đến 20
+            randomChromosome.add(rand.nextInt(MAX_VEHICLE)+1); // chọn ngẫu nhiên từ 1 đến 20
         }
         this.chromosome = randomChromosome; // gán chromosome của this Individual bằng chromosome ngẫu nhiên vừa tạo
     }
@@ -41,7 +41,7 @@ public class Individual  {
         //
         int max = 0;
         int current = 1;
-        while (current < MAX_VEHICLE) {
+        while (current < MAX_VEHICLE+1) {
             ArrayList<Integer> destilist = new ArrayList<>();
             int size = chromosome.size();
             for (int i = 0; i < size; i++) {

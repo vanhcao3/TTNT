@@ -2,30 +2,47 @@ package main;
 
 import main.ga.GA;
 import main.ga.Individual;
+import main.ga.SubChromosome;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+import static main.Configs.MAX_VEHICLE;
 
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException{
-        try{
-            Problem.load_input_data("D:\\java-workplace\\TNTT\\src\\main\\data\\dantzig_699.txt");
-        }catch (Exception e){
-            e.printStackTrace();
-            return;
+        long startTime = System.nanoTime();
+        Problem.load_input_data("D:\\java-workplace\\TNTT\\src\\main\\data\\dantzig_699.txt");
+        GA solver=new GA();
+        Individual best=solver.run();
+        System.out.println(best.fitness);
+        for(int id: best.chromosome){
+            System.out.print(id+" ");
+
+        }
+        int current = 1;
+        while (current < MAX_VEHICLE+1) {
+            ArrayList<Integer> destilist = new ArrayList<>();
+            int size = best.chromosome.size();
+            for (int i = 0; i < size; i++) {
+                if (best.chromosome.get(i) == current)
+                    destilist.add(i);
+            }
+            for(int id: destilist){
+                System.out.print((id+1)+" ");
+
+            }
+            System.out.println();
+
+            current++;
         }
 
-//        GA solver=new GA();
-//        Individual best=solver.run();
-//        System.out.println(best.fitness);
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration/1000000);
 
-        Individual th=new Individual();
-        for(int i=1;i<=40;i++){
-            th.chromosome.add(10);
-        }
-        th.chromosome.add(3);
-        th.calculateFitness();
-        System.out.println(1/ th.fitness);
+
 
 
 
