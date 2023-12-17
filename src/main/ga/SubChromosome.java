@@ -39,6 +39,7 @@ public class SubChromosome {
 
         }
 
+
         this.fitness=sum;
         return sum;
     }
